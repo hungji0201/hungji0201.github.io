@@ -1,0 +1,324 @@
+[
+  {
+    "name":"劉記花生",
+    "type":"Shop",
+    "link":"https://acerku01.github.io/liupeanut-portfolio/#/",
+    "img":"works-46.jpg",
+    "info":"2023 作品 (Vue)"
+  },
+  {
+    "name":"磐成設計",
+    "type":"Business",
+    "link":"https://www.idigi.tw/pcid/index.html",
+    "img":"works-45.jpg",
+    "info":"2022 作品"
+  },
+  {
+    "name":"鈺創美學",
+    "type":"Business",
+    "link":"http://www.ycpackaging.com/zh-Hant",
+    "img":"works-44.jpg",
+    "info":"2022 作品"
+  },
+  {
+    "name":"政府 - 台南市政府工務局建築管理科",
+    "type":"Business",
+    "link":"https://www.idigi.tw/publicworks_tainan/",
+    "img":"works-43.jpg",
+    "info":"2020 作品"
+  },
+  {
+    "name":"政府 - 內政部營建署",
+    "type":"Business",
+    "link":"https://www.idigi.tw/cpami/",
+    "img":"works-42.jpg",
+    "info":"2021 作品"
+  },
+  {
+    "name":"政府 - 苗栗縣政府建管便民服務資訊網",
+    "type":"Business",
+    "link":"https://www.idigi.tw/miaoli/",
+    "img":"works-41.jpg",
+    "info":"2021 作品"
+  },
+  {
+    "name":"新保生活關懷",
+    "type":"Business",
+    "link":"https://www.idigi.tw/SHIN-PO/",
+    "img":"works-40.jpg",
+    "info":"2020 作品"
+  },
+  {
+    "name":"aplex",
+    "type":"Business",
+    "link":"https://www.aplex.com/",
+    "img":"works-39.jpg",
+    "info":"2020 作品"
+  },
+  {
+    "name":"sungo",
+    "type":"Business",
+    "link":"http://eijo2.fourfuns.com.tw/sungo/",
+    "img":"works-37.jpg",
+    "info":"2022 作品"
+  },
+  {
+    "name":"agc",
+    "type":"Business",
+    "link":"http://eijo2.fourfuns.com.tw/agc/",
+    "img":"works-36.jpg",
+    "info":"2022 作品"
+  },
+  {
+    "name":"KT",
+    "type":"Business",
+    "link":"https://eijo2.fourfuns.com.tw/KT/",
+    "img":"works-35.jpg",
+    "info":"2022 作品"
+  },
+  {
+    "name":"環宇光電",
+    "type":"Business",
+    "link":"https://www.g-tek.com.tw/",
+    "img":"works-34.jpg",
+    "info":"2022 作品"
+  },
+  {
+    "name":"wanheng",
+    "type":"Business",
+    "link":"https://eijo2.fourfuns.com.tw/wanheng/",
+    "img":"works-33.jpg",
+    "info":"2022 作品"
+  },
+  {
+    "name":"衣世代",
+    "type":"Business",
+    "link":"https://www.easy-fashion.com.tw/",
+    "img":"works-32.jpg",
+    "info":"2022 作品"
+  },
+  {
+    "name":"shenfong",
+    "type":"Business",
+    "link":"https://www.shenfong.com.tw/",
+    "img":"works-31.jpg",
+    "info":"2022 作品"
+  },
+  {
+    "name":"2022台中市農會螢火蟲",
+    "type":"Business",
+    "link":"http://eijo2.fourfuns.com.tw/dentalhsieh/page.html",
+    "img":"works-30.jpg",
+    "info":"2022 作品"
+  },
+  {
+    "name":"鹿鹿茶香",
+    "type":"Shop",
+    "link":"https://www.zhong-tu.com.tw/",
+    "img":"works-29.jpg",
+    "info":"2022 作品"
+  },
+  {
+    "name":"eyebrow",
+    "type":"Business",
+    "link":"https://www.eyebrow.tw/",
+    "img":"works-28.jpg",
+    "info":"2022 作品"
+  },
+  {
+    "name":"klk",
+    "type":"Business",
+    "link":"https://www.klk.com.tw/",
+    "img":"works-27.jpg",
+    "info":"2022 作品"
+  },
+  {
+    "name":"飄逸杯",
+    "type":"Shop",
+    "link":"https://www.piao-i.com/",
+    "img":"works-26.jpg",
+    "info":"2021 作品"
+  },
+  {
+    "name":"dr-chiu",
+    "type":"Business",
+    "link":"https://www.dr-chiu.com/",
+    "img":"works-25.jpg",
+    "info":"2021 作品"
+  },
+  {
+    "name":"FutureWafer",
+    "type":"Business",
+    "link":"http://eijo2.fourfuns.com.tw/FutureWafer/",
+    "img":"works-24.jpg",
+    "info":"2021 作品"
+  },
+  {
+    "name":"seculok",
+    "type":"Shop",
+    "link":"https://www.seculok.com/",
+    "img":"works-23.jpg",
+    "info":"2021 作品"
+  },
+  {
+    "name":"jing cheau",
+    "type":"Business",
+    "link":"https://www.jing-cheau.com.tw/",
+    "img":"works-22.jpg",
+    "info":"2021 作品"
+  },
+  {
+    "name":"niwi",
+    "type":"Business",
+    "link":"http://eijo2.fourfuns.com.tw/niwi/",
+    "img":"works-21.jpg",
+    "info":"2021 作品"
+  },
+  {
+    "name":"meow",
+    "type":"Shop",
+    "link":"https://www.meow-pet.com/",
+    "img":"works-20.jpg",
+    "info":"2021 作品"
+  },
+  {
+    "name":"conica",
+    "type":"Business",
+    "link":"https://www.conica.com.tw/",
+    "img":"works-19.jpg",
+    "info":"2021 作品"
+  },
+  {
+    "name":"英倫牙醫",
+    "type":"Business",
+    "link":"https://www.england-dental.com.tw/",
+    "img":"works-17.jpg",
+    "info":"2021 作品"
+  },
+  {
+    "name":"asiantech",
+    "type":"Business",
+    "link":"https://www.asiantech.com.tw/",
+    "img":"works-16.jpg",
+    "info":"2021 作品"
+  },
+  {
+    "name":"tccl",
+    "type":"Business",
+    "link":"https://www.tccl.com.tw/",
+    "img":"works-18.jpg",
+    "info":"2020 作品"
+  },
+  {
+    "name":"CLN",
+    "type":"Shop",
+    "link":"https://eijo2.fourfuns.com.tw/CLN/",
+    "img":"works-15.jpg",
+    "info":"2020 作品"
+  },
+  {
+    "name":"weipower",
+    "type":"Shop",
+    "link":"http://eijo2.fourfuns.com.tw/weipower/",
+    "img":"works-14.jpg",
+    "info":"2020 作品"
+  },
+  {
+    "name":"hung long",
+    "type":"Shop",
+    "link":"https://eijo2.fourfuns.com.tw/hung-long/",
+    "img":"works-13.jpg",
+    "info":"2020 作品"
+  },
+  {
+    "name":"4safe",
+    "type":"Business",
+    "link":"https://www.ppi-4safe.com/",
+    "img":"works-12.jpg",
+    "info":"2020 作品"
+  },
+  {
+    "name":"LEADER",
+    "type":"Business",
+    "link":"https://www.high-lacquer.com.tw/",
+    "img":"works-11.jpg",
+    "info":"2020 作品"
+  },
+  {
+    "name":"nafertino",
+    "type":"Business",
+    "link":"https://www.nafertino.com.tw/",
+    "img":"works-10.jpg",
+    "info":"2020 作品"
+  },
+  {
+    "name":"FOURIERS",
+    "type":"Shop",
+    "link":"https://eijo2.fourfuns.com.tw/FOURIERS",
+    "img":"works-09.jpg",
+    "info":"2019 作品"
+  },
+  {
+    "name":"文案的美",
+    "type":"Shop",
+    "link":"https://www.copywriter.com.tw/",
+    "img":"works-38.jpg",
+    "info":"2019 作品"
+  },
+  {
+    "name":"Herb Tea",
+    "type":"Shop",
+    "link":"https://www.herb-tea.com.tw/",
+    "img":"works-08.jpg",
+    "info":"2019 作品"
+  },
+  {
+    "name":"navallihill",
+    "type":"Shop",
+    "link":"https://www.navallihill.com/",
+    "img":"works-01.jpg",
+    "info":"2018 作品"
+  },
+  {
+    "name":"marcella",
+    "type":"Shop",
+    "link":"https://www.marcella.com.tw/",
+    "img":"works-02.jpg",
+    "info":"2018 作品"
+  },
+  {
+    "name":"adam",
+    "type":"Shop",
+    "link":"https://www.adamelements.com/store/tw/",
+    "img":"works-03.jpg",
+    "info":"2018 作品"
+  },
+  {
+    "name":"oringo",
+    "type":"Shop",
+    "link":"https://www.oringoshoes.com/",
+    "img":"works-04.jpg",
+    "info":"2017 - 2018 作品"
+  },
+  {
+    "name":"yilan",
+    "type":"Business",
+    "link":"https://www.yilan.com.tw/",
+    "img":"works-05.jpg",
+    "info":"2017 - 2018 作品"
+  },
+  {
+    "name":"pekoe",
+    "type":"Shop",
+    "link":"https://www.pekoe.com.tw/",
+    "img":"works-06.jpg",
+    "info":"2017 - 2018 作品"
+  },
+  {
+    "name":"羊毛氈手創館",
+    "type":"Shop",
+    "link":"https://www.feltmaking.com.tw/",
+    "img":"works-07.jpg",
+    "info":"2016 作品"
+  }
+]
