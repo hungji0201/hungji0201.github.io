@@ -1,0 +1,84 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "name": "JINS台灣",
+      "year": "2020",
+      "type": "UI/UX, Web Design, System",
+      "link": "https://www.jins.com/tw/",
+      "img": "01.jpg",
+      "textColor": "0",
+      "backgroundColor": "#fab8ce"
+    },
+    {
+      "id": 2,
+      "name": "易兆企業",
+      "year": "2020",
+      "type": "Programming, System",
+      "link": "http://www.hydroseal.com.tw/",
+      "img": "02.jpg",
+      "textColor": "0",
+      "backgroundColor": "#0061c9"
+    },
+    {
+      "id": 3,
+      "name": "富蘭工業",
+      "year": "2020",
+      "type": "Programming, System",
+      "link": "https://www.paper-bag.com/",
+      "img": "03.jpg",
+      "textColor": "0",
+      "backgroundColor": "#3fc344"
+    },
+    {
+      "id": 4,
+      "name": "柏克力美式教育學苑",
+      "year": "2019",
+      "type": "UI/UX, Web Design, System",
+      "link": "http://www.berkeleykg.com/",
+      "img": "04.jpg",
+      "textColor": "0",
+      "backgroundColor": "#326caa"
+    },
+    {
+      "id": 5,
+      "name": "DT Coating靚速專業鍍膜",
+      "year": "2019",
+      "type": "UI/UX, Web Design, System",
+      "link": "https://dreamturbo.com.tw/",
+      "img": "05.jpg",
+      "textColor": "0",
+      "backgroundColor": "#2a1f19"
+    },
+    {
+      "id": 6,
+      "name": "AKACHEN 頂級藝術珠寶",
+      "year": "2019",
+      "type": "Web Design",
+      "link": "http://akachen.com/",
+      "img": "06.jpg",
+      "textColor": "0",
+      "backgroundColor": "#2b2b2b"
+    },
+    {
+      "id": 7,
+      "name": "晴天見設計2018",
+      "year": "2018",
+      "type": "UI/UX, Web Design",
+      "link": "http://skyeyeleague.com/",
+      "img": "07.jpg",
+      "textColor": "0",
+      "backgroundColor": "#2a1f19"
+    },
+    {
+      "id": 8,
+      "name": "森手木作",
+      "year": "2018",
+      "type": "UI/UX, Web Design, System",
+      "link": "http://moriii.com/",
+      "img": "08.jpg",
+      "textColor": "1",
+      "backgroundColor": "#ebe9e9"
+    }
+  ]
+}
