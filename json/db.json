@@ -1,14 +1,6 @@
 {
   "data": [
     {
-      "id": 48,
-      "name": "cana",
-      "type": "Business",
-      "link": "https://hungji0201.github.io/web/cana/",
-      "img": "works-48.jpg",
-      "info": "2023 作品"
-    },
-    {
       "id": 46,
       "name": "劉記花生",
       "type": "Shop",
