@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg width="195.78" height="125.89" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 195.8 125.9" style="enable-background:new 0 0 195.8 125.9;" xml:space="preserve">
+<style type="text/css">
+	.seagull{fill:#FFFDE3;}
+	<![CDATA[
+  .seagull-01 {animation: seagull-01 3000ms linear infinite normal forwards}
+@keyframes seagull-01 { 0% {opacity: 1} 66.666667% {opacity: 1;transform: translate3d(10px, 10px, 10px);} 100% {opacity: 1}}
+.seagull-02 {animation: seagull-02 3600ms linear infinite normal forwards}
+@keyframes seagull-02 { 0% {opacity: 1} 66.666667% {opacity: 1;transform: translate3d(-10px, -20px, 10px) skewY(-5deg);} 100% {opacity: 1}}
+.seagull-03 {animation: seagull-03 3000ms linear infinite normal forwards}
+@keyframes seagull-03 { 0% {opacity: 1} 66.666667% {opacity: 1;transform: translate3d(10px, -10px, 00px);} 100% {opacity: 1}}
+]]>
+</style>
+<g id="圖層_2_1_">
+	<g id="_01首頁">
+		<path class="seagull seagull-01" d="M121.7,46.4c2.7-7,10.5-10.4,17.5-7.7c3.8,1.5,6.7,4.5,7.9,8.4c-1.1-7.4,4-14.3,11.4-15.4
+			c7.4-1.1,14.3,4,15.4,11.4c0.1,0.4,0.1,0.8,0.1,1.2c-2.6-7-10.4-10.6-17.4-8c-5.7,2.1-9.2,7.7-8.8,13.7c-0.1-0.1-0.1-0.3-0.2-0.4
+			c0,0.2,0.1,0.4,0.1,0.7c-2.6-7-10.5-10.5-17.4-7.9c-5.6,2.1-9.1,7.6-8.7,13.6C120.5,52.9,120.5,49.5,121.7,46.4z"/>
+		<path class="seagull seagull-02" d="M21.6,108.3c1.6-4.2,6.3-6.2,10.5-4.6c2.3,0.9,4,2.7,4.8,5c-0.6-4.4,2.4-8.5,6.9-9.2c4.4-0.6,8.5,2.4,9.2,6.9
+			c0,0.2,0.1,0.4,0.1,0.6c-1.5-4.2-6.2-6.3-10.4-4.8c-3.4,1.3-5.6,4.6-5.3,8.2c0-0.1-0.1-0.2-0.1-0.3c0,0.1,0,0.3,0,0.4
+			c-1.6-4.2-6.2-6.3-10.4-4.8c-3.4,1.3-5.5,4.6-5.3,8.2C20.8,112.2,20.8,110.1,21.6,108.3z"/>
+		<path class="seagull seagull-03" d="M94.3,28.1c1.9-4.8,7.3-7.2,12.1-5.3c2.6,1,4.6,3.1,5.5,5.8c-0.7-5.1,2.9-9.8,8-10.5c5.1-0.7,9.8,2.9,10.5,8
+			c0,0.2,0,0.4,0.1,0.6c-1.8-4.8-7.2-7.3-12-5.5c-3.9,1.5-6.4,5.4-6.1,9.5c0-0.1-0.1-0.2-0.1-0.3c0,0.2,0,0.3,0.1,0.5
+			c-1.8-4.8-7.2-7.3-12-5.5c-3.9,1.5-6.4,5.4-6.1,9.5C93.4,32.6,93.5,30.2,94.3,28.1z"/>
+	</g>
+</g>
+</svg>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="76.96" height="79.79" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 76.96 79.79">
+  <g style="isolation: isolate;">
+    <g id="_圖層_1" data-name="圖層 1">
+      <g style="mix-blend-mode: multiply; opacity: .2;">
+        <polygon points="8.28 7.84 8.28 71.28 8.28 79.79 42.28 64.28 76.96 79.79 76.96 71.28 76.96 7.84 8.28 7.84" style="fill: #204a83;"/>
+      </g>
+      <g>
+        <polygon points="0 68.02 0 76.1 34.34 60.7 68.69 76.1 68.69 68.02 34.34 52.63 0 68.02" style="fill: #c7e8fa;"/>
+        <path d="M62.46,0H6.22C2.79,0,0,2.79,0,6.22v61.8l34.34-15.39,34.34,15.39V6.22c0-3.44-2.79-6.22-6.22-6.22Z" style="fill: #204a83;"/>
+      </g>
+    </g>
+  </g>
+</svg>

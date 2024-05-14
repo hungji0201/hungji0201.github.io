@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="487.01" height="153.79" id="_圖層_2" data-name="圖層 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 487.01 153.79">
+  <defs>
+    <linearGradient id="_未命名漸層_36" data-name="未命名漸層 36" x1="3253.78" y1="153.57" x2="3253.78" y2="24.34" gradientTransform="translate(3497.29) rotate(-180) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fffde3" stop-opacity="0"/>
+      <stop offset="1" stop-color="#fffde3"/>
+    </linearGradient>
+  </defs>
+  <g id="_圖層_1-2" data-name="圖層 1">
+    <path d="M418.04,77.93s3.22-40.45-46.82-58.64c-64.54-23.46-57.9,47.77-57.9,47.77,0,0-21.48-86.45-92.87-63.03-51.21,16.8-72.3,108.27-72.3,108.27,0,0-9.7-2.76-16.63,4.15s-5.35,16.59-5.35,16.59c0,0-55.56,20.75-126.16,20.75H482.64s12.73-5.94-5.25-23.92-29.36-10.31-29.36-10.31c0,0,15.87-20.84,.73-35.3-15.53-14.83-30.72-6.34-30.72-6.34Z" style="fill: url(#_未命名漸層_36);"/>
+  </g>
+</svg>

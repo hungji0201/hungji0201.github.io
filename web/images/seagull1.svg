@@ -1,0 +1,27 @@
+<svg width="100" height="237.1943" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 77.46 237.19">
+<style><![CDATA[
+  .seagull-01 {animation: seagull-01 3000ms linear infinite normal forwards}
+@keyframes seagull-01 { 0% {opacity: 1} 66.666667% {opacity: 1;transform: translate3d(10px, 10px, 10px);} 100% {opacity: 1}}
+.seagull-02 {animation: seagull-02 3600ms linear infinite normal forwards}
+@keyframes seagull-02 { 0% {opacity: 1} 66.666667% {opacity: 1;transform: translate3d(-10px, -20px, 10px) skewY(-5deg);} 100% {opacity: 1}}
+.seagull-03 {animation: seagull-03 3000ms linear infinite normal forwards}
+@keyframes seagull-03 { 0% {opacity: 1} 66.666667% {opacity: 1;transform: translate3d(10px, -10px, 00px);} 100% {opacity: 1}}
+]]></style>
+  <defs>
+    <style>
+      .seagull {
+        fill: #fffde3;
+      }
+    </style>
+  </defs>
+  <g id="圖層_2" data-name="圖層 2">
+    <g id="_01首頁" data-name="01首頁">
+      <path class="seagull seagull-01"
+        d="M52.32,14.57a13.51,13.51,0,0,0-25.43.68A13.52,13.52,0,1,0,0,12.47a13.51,13.51,0,0,1,25.28-.23,13.28,13.28,0,0,1,.88,6c.06-.15.11-.3.16-.45,0,.22-.06.45-.08.67a13.52,13.52,0,0,1,26.17,5.73A13.44,13.44,0,0,0,52.32,14.57Z" />
+      <path class="seagull seagull-02"
+        d="M74.42,231.46a8.09,8.09,0,0,0-15.23.41,8.1,8.1,0,1,0-16.1-1.66,8.09,8.09,0,0,1,15.14-.14,8.18,8.18,0,0,1,.53,3.56l.09-.27c0,.14,0,.27-.05.41a8.1,8.1,0,0,1,15.67,3.42A8,8,0,0,0,74.42,231.46Z" />
+      <path class="seagull seagull-03"
+        d="M76.83,54.28a9.36,9.36,0,0,0-17.62.47,9.36,9.36,0,0,0-12.67-9.92,9.37,9.37,0,0,0-5.94,8,9.36,9.36,0,0,1,18.11,4,3,3,0,0,0,.11-.32c0,.16,0,.32,0,.47a9.36,9.36,0,0,1,18.11,4A9.27,9.27,0,0,0,76.83,54.28Z" />
+    </g>
+  </g>
+</svg>

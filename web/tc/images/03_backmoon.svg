@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="103.9737" height="124.9524" id="_圖層_1" data-name="圖層 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 103.97 124.95">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#_未命名漸層_261);
+      }
+    </style>
+    <linearGradient id="_未命名漸層_261" data-name="未命名漸層 261" x1="36.48" y1="116.21" x2="87.28" y2="20.26" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0f335e"/>
+      <stop offset=".54" stop-color="#1f487e"/>
+      <stop offset=".73" stop-color="#204a80"/>
+      <stop offset=".86" stop-color="#25508a"/>
+      <stop offset=".98" stop-color="#2d5b9a"/>
+      <stop offset="1" stop-color="#2f5e9e"/>
+    </linearGradient>
+  </defs>
+  <path class="cls-1" d="M50.88,0c2.97,2.57,5.74,5.45,8.26,8.65,21.49,27.27,16.8,66.79-10.47,88.28-13.64,10.75-30.34,14.95-46.31,13.05-.79-.09-1.58-.21-2.36-.33,9.68,8.39,21.48,13.41,33.71,14.86,15.98,1.9,32.68-2.3,46.31-13.05,27.27-21.49,31.95-61.01,10.47-88.28C80.27,10.23,65.99,2.37,50.88,0Z"/>
+</svg>

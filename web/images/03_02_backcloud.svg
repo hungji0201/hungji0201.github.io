@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="489.3238" height="114.8491" id="_圖層_1" data-name="圖層 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 489.32 114.85">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#_未命名漸層_6);
+      }
+    </style>
+    <linearGradient id="_未命名漸層_6" data-name="未命名漸層 6" x1="460.9" y1="114.69" x2="460.9" y2="18.18" gradientTransform="translate(705.57) rotate(-180) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#204a83"/>
+      <stop offset="1" stop-color="#002664"/>
+    </linearGradient>
+  </defs>
+  <path class="cls-1" d="M425.8,54.78S428.54,7.54,375.5,.46c-36.42-4.86-90.3,30.09-90.3,30.09,0,0-16.32-22.64-33.17-22.12-54.13,1.69-53.78,64.72-53.78,64.72,0,0-23.26-27.84-66.11,4.17l-5.38,16.67S70.94,114.85,0,114.85H484.93s12.79-5.97-5.28-24.04c-18.07-18.07-37-19.18-37-19.18,0,0,23.45-12.12,8.23-26.64-15.61-14.9-25.08,9.79-25.08,9.79Z"/>
+</svg>
