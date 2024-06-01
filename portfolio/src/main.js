@@ -33,12 +33,13 @@ async function init() {
   const raycaster = new THREE.Raycaster();
   const mouse = new THREE.Vector2();
   const planes = [];
-  const links = [
-    'https://gotoo.co/demo/acer/ana-knuwan/',
-    'https://gotoo.co/demo/acer/web/homyn/member.html',
-    'https://gotoo.co/demo/acer/web/cana/'
+
+  const items = [
+    { link: 'https://gotoo.co/demo/acer/ana-knuwan/', title: '永生花' },
+    { link: 'https://gotoo.co/demo/acer/web/homyn/member.html', title: '好命命理會員系統' },
+    { link: 'https://gotoo.co/demo/acer/web/cana/', title: 'cana' }
   ];
-  const titles = ['永生花', '好命命理會員系統', 'cana'];
+
   const fontLoader = new FontLoader();
   fontLoader.load('./model/Noto_Sans_TC_SemiBold_Regular.json', (font) => {
     const createPlane = (texture) => {
@@ -82,8 +83,9 @@ async function init() {
     };
 
     const textureLoader = new THREE.TextureLoader();
+    const startAngle = Math.PI / 2;  // 设置起始角度，使第一个 plane 从正前方开始
     for (let i = 0; i < numPlanes; i++) {
-      const angle = -i * angleIncrement;
+      const angle = startAngle - i * angleIncrement;  // 逆时针排列，减去角度增量
       const x = radius * Math.cos(angle);
       const y = -i * heightIncrement; // 沿着 -y 往下排列
       const z = radius * Math.sin(angle);
@@ -91,10 +93,10 @@ async function init() {
       textureLoader.load(`./model/works-${i}.jpg`, (texture) => {
         const plane = createPlane(texture);
         plane.position.set(x, y, z);
-        plane.lookAt(new THREE.Vector3(0, y, 0)); // 確保平面朝圓心
-        plane.rotateY(Math.PI); // 調整平面的方向，正面朝攝影機
+        plane.lookAt(new THREE.Vector3(0, y, 0)); // 确保平面朝圆心
+        plane.rotateY(Math.PI); // 调整平面的方向，正面朝摄像机
 
-        const textMesh = createTextMesh(titles[i], font);
+        const textMesh = createTextMesh(items[i].title, font);
         textMesh.position.set(-2, 0, 0.1);
 
         plane.add(textMesh);
@@ -102,6 +104,7 @@ async function init() {
         planes[i] = plane; // 将平面放置在正确的索引处
       });
     }
+
   });
   // 設置相機位置
   camera3.position.z = 8;
@@ -163,9 +166,9 @@ async function init() {
   let stars = [];
   function addSphere(){
     for ( var z= -1000; z < 1000; z+=20 ) {
-      var geometry   = new THREE.SphereGeometry(0.5, 32, 32)
+      var geometry   = new THREE.SphereGeometry(0.5, 32, 32);
       var material = new THREE.MeshBasicMaterial( {color: 0xffffff} );
-      var sphere = new THREE.Mesh(geometry, material)
+      var sphere = new THREE.Mesh(geometry, material);
       sphere.position.x = Math.random() * 1000 - 500;
       sphere.position.y = Math.random() * 1000 - 500;
       sphere.position.z = z;
@@ -203,6 +206,11 @@ async function init() {
           camera.updateProjectionMatrix(); // 更新相機投影
           camera.lookAt(orbitControls.target); // 確保相機始终看向目標對象
           orbitControls.update();
+
+          // 更新 scene3 的旋转和位置
+          scene3.rotation.y = -progress * Math.PI * 2;
+          scene3.position.y = progress * 4; // 可根据需要调整位置变换的幅度
+
       }
     }
   });
@@ -223,7 +231,7 @@ async function init() {
       const index = planes.indexOf(intersects[0].object);
       console.log(index);
       if (index !== -1) {
-        window.open(links[index], '_blank');
+        window.open(items[index].link, '_blank');
       }
     }
   };
@@ -248,8 +256,6 @@ async function init() {
 
     renderer.autoClear = false;
     renderer.render(scene2, camera2);
-
-    scene3.rotation.y -= 0.005; // 選轉整個 group（可選，用於可視化效果）
     renderer.render(scene3, camera3);
 
   };
