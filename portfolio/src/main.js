@@ -35,9 +35,12 @@ async function init() {
   const planes = [];
 
   const items = [
-    { link: 'https://gotoo.co/demo/acer/ana-knuwan/', title: '永生花' },
-    { link: 'https://gotoo.co/demo/acer/web/homyn/member.html', title: '好命命理會員系統' },
-    { link: 'https://gotoo.co/demo/acer/web/cana/', title: 'cana' }
+    { link: 'https://gotoo.co/demo/acer/ana-knuwan/', title: '永生花', image: 'works-50', info: '2024 作品' },
+    { link: 'https://gotoo.co/demo/acer/web/homyn/member.html', title: '好命命理會員系統', image: 'works-49', info: '2023 作品' },
+    { link: 'https://gotoo.co/demo/acer/web/cana/', title: 'cana', image: 'works-48', info: '2023 作品' },
+    { link: 'https://hungji0201.github.io/liupeanut/#/', title: '劉記花生', image: 'works-47', info: '2023 作品 (Vue)' },
+    { link: 'https://www.klk.com.tw/', title: 'klk', image: 'works-46', info: '2022 作品' },
+    { link: 'https://www.eyebrow.tw/', title: 'eyebrow', image: 'works-45', info: '2022 作品' }
   ];
 
   const fontLoader = new FontLoader();
@@ -84,13 +87,13 @@ async function init() {
 
     const textureLoader = new THREE.TextureLoader();
     const startAngle = Math.PI / 2;  // 设置起始角度，使第一个 plane 从正前方开始
-    for (let i = 0; i < numPlanes; i++) {
+    for (let i = 0; i < items.length; i++) {
       const angle = startAngle - i * angleIncrement;  // 逆时针排列，减去角度增量
       const x = radius * Math.cos(angle);
       const y = -i * heightIncrement; // 沿着 -y 往下排列
       const z = radius * Math.sin(angle);
 
-      textureLoader.load(`./model/works-${i}.jpg`, (texture) => {
+      textureLoader.load(`./model/${items[i].image}.jpg`, (texture) => {
         const plane = createPlane(texture);
         plane.position.set(x, y, z);
         plane.lookAt(new THREE.Vector3(0, y, 0)); // 确保平面朝圆心
