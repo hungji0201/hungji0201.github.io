@@ -1,10 +1,11 @@
-import * as THREE from "three";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import * as THREE from 'three';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js';
 import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry.js";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { items } from './work.js';
 gsap.registerPlugin(ScrollTrigger);
 
 async function init() {
@@ -18,100 +19,115 @@ async function init() {
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 1000);
   camera.position.set(0, 3, 0);
-
   //流星場景
   const scene2 = new THREE.Scene();
   const camera2 = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 1000);
-
   //作品場景
   const scene3 = new THREE.Scene();
   const camera3 = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 1000);
-  const numPlanes = 3; // 平面數量
-  const radius = 5; // 圓形路徑的半徑
-  const angleIncrement = (2 * Math.PI) / numPlanes; // 每個作品間的角度差
-  const heightIncrement = 1.2; // 每個作品的高度差
+  camera3.position.set(0, 0.1, 5.8); // 0, 0.1, 5.8
   const raycaster = new THREE.Raycaster();
   const mouse = new THREE.Vector2();
   const planes = [];
-
-  const items = [
-    { link: 'https://gotoo.co/demo/acer/ana-knuwan/', title: '永生花', image: 'works-50', info: '2024 作品' },
-    { link: 'https://gotoo.co/demo/acer/web/homyn/member.html', title: '好命命理會員系統', image: 'works-49', info: '2023 作品' },
-    { link: 'https://gotoo.co/demo/acer/web/cana/', title: 'cana', image: 'works-48', info: '2023 作品' },
-    { link: 'https://hungji0201.github.io/liupeanut/#/', title: '劉記花生', image: 'works-47', info: '2023 作品 (Vue)' },
-    { link: 'https://www.klk.com.tw/', title: 'klk', image: 'works-46', info: '2022 作品' },
-    { link: 'https://www.eyebrow.tw/', title: 'eyebrow', image: 'works-45', info: '2022 作品' }
-  ];
+  
 
   const fontLoader = new FontLoader();
   fontLoader.load('./model/Noto_Sans_TC_SemiBold_Regular.json', (font) => {
-    const createPlane = (texture) => {
-      const geometry = new THREE.BufferGeometry();
-      // 頂點位置
-      const vertices = new Float32Array([
-        -1.6, -0.9, 0.0,  // 左下角
-        1.6, -0.9, 0.0,   // 右下角
-        1.6,  0.9, 0.0,   // 右上角
-        -1.6,  0.9, 0.0   // 左上角
-      ]);
-      // UV座標
-      const uvs = new Float32Array([
-        0.0, 0.0,  // 左下角
-        1.0, 0.0,  // 右下角
-        1.0, 1.0,  // 右上角
-        0.0, 1.0   // 左上角
-      ]);
-      // 索引
-      const indices = new Uint16Array([
-        0, 1, 2,  // 第一個三角形
-        0, 2, 3   // 第二個三角形
-      ]);
-      geometry.setAttribute('position', new THREE.BufferAttribute(vertices, 3));
-      geometry.setAttribute('uv', new THREE.BufferAttribute(uvs, 2));
-      geometry.setIndex(new THREE.BufferAttribute(indices, 1));
-      const material = new THREE.MeshBasicMaterial({ map: texture, side: THREE.DoubleSide });
-      const plane = new THREE.Mesh(geometry, material);
-      return plane;
-    };
-
+    function createSpiralPath(radius, height, turns, points) {
+      const pointsArray = [];
+      for (let i = 0; i <= points; i++) {
+          const angle = (-i / points) * turns * Math.PI * 2;
+          const x = radius * Math.cos(angle);
+          const y = (-height * (i / points) + height / 2) - 1.5;  // Adjust y to center the spiral path
+          const z = radius * Math.sin(angle);
+          pointsArray.push(new THREE.Vector3(x, y, z));
+      }
+      return new THREE.CatmullRomCurve3(pointsArray);
+    }
+    const radius = 4;
+    const height = 60;
+    const turns = 10;
+    const points = 400;
+    const spiralPath = createSpiralPath(radius, height, turns, points);
+    const geometry = new THREE.BufferGeometry().setFromPoints(spiralPath.getPoints(points));
+    const material = new THREE.LineBasicMaterial({ color: 0xff0000, visible: false }); // 隐藏路径线条
+    const line = new THREE.Line(geometry, material);
+    scene3.add(line);
     const createTextMesh = (text, font) => {
       const textGeometry = new TextGeometry(text, {
         font: font,
-        size: 0.15,
+        size: 0.1,
         height: 0,
       });
       const textMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
       const textMesh = new THREE.Mesh(textGeometry, textMaterial);
       return textMesh;
     };
-
+    const planeGeometry = new THREE.PlaneGeometry(1.92, 1.08);
     const textureLoader = new THREE.TextureLoader();
-    const startAngle = Math.PI / 2;  // 设置起始角度，使第一个 plane 从正前方开始
-    for (let i = 0; i < items.length; i++) {
-      const angle = startAngle - i * angleIncrement;  // 逆时针排列，减去角度增量
-      const x = radius * Math.cos(angle);
-      const y = -i * heightIncrement; // 沿着 -y 往下排列
-      const z = radius * Math.sin(angle);
 
-      textureLoader.load(`./model/${items[i].image}.jpg`, (texture) => {
-        const plane = createPlane(texture);
-        plane.position.set(x, y, z);
-        plane.lookAt(new THREE.Vector3(0, y, 0)); // 确保平面朝圆心
-        plane.rotateY(Math.PI); // 调整平面的方向，正面朝摄像机
+    items.forEach((item, index) => {
+      const texture = textureLoader.load(`./model/${item.image}.jpg`); // 加载图片
+      const material = new THREE.MeshBasicMaterial({ map: texture, side: THREE.DoubleSide });
+      const plane = new THREE.Mesh(planeGeometry, material);
+      plane.userData = { link: item.link, title: item.title, info: item.info }; // 保存相关数据
 
-        const textMesh = createTextMesh(items[i].title, font);
-        textMesh.position.set(-2, 0, 0.1);
+      const textMesh = createTextMesh(item.title, font);
+      textMesh.position.set(-1.2, 0, 0.1);
+      const infoText = new THREE.Mesh(
+        new TextGeometry(`- ${item.info} -`, {
+        font: font,
+        size: 0.05,
+        height: 0,
+      }), new THREE.MeshBasicMaterial({ color: 0xffffff }));
+      infoText.position.set(0.7, -0.54, 0.1);
 
-        plane.add(textMesh);
-        scene3.add(plane);
-        planes[i] = plane; // 将平面放置在正确的索引处
+      plane.add(textMesh);
+      plane.add(infoText);
+      planes.push(plane);
+      scene3.add(plane);
+    });
+
+    let progress_p = 0.475;
+    let positionsStopped = Array(planes.length).fill(false);
+    updatePlanePositions();
+
+    function updatePlanePositions() {
+      planes.forEach((plane, index) => {
+        if (!positionsStopped[index] || progress_p < 0.475) {
+          let planeProgress = (progress_p + index * 0.02) % 1;
+          planeProgress = Math.max(0, Math.min(planeProgress, 1));  // 确保值在0到1之间
+          const point = spiralPath.getPointAt(planeProgress);
+          const tangent = spiralPath.getTangentAt(planeProgress);
+          plane.position.copy(point);
+          const direction = tangent.clone().normalize();
+          const perpendicular = new THREE.Vector3(-direction.z, 0, direction.x);
+          plane.lookAt(point.clone().add(perpendicular));
+
+          if (planeProgress === 0) {
+            positionsStopped[index] = true;
+          } else {
+            positionsStopped[index] = false;
+          }
+        }
       });
     }
 
+    gsap.to({}, {
+      scrollTrigger: {
+          trigger: document.body,
+          start: "top top",
+          end: "bottom+=9000px top",
+          scrub: true,
+          onUpdate: (self) => {
+              progress_p = 0.475 - self.progress;
+              updatePlanePositions();
+          }
+      }
+    });
   });
-  // 設置相機位置
-  camera3.position.z = 8;
-
+  
+  // orbitControls設定
   const orbitControls = new OrbitControls(camera, canvas);
   orbitControls.enabled = false;
   orbitControls.enablePan = false;
@@ -155,6 +171,7 @@ async function init() {
     const canvasTexture = new THREE.CanvasTexture(canvas)
     return canvasTexture
   }
+
   // 太空人模型設定
   const loader = new GLTFLoader();
   const url = './model/astronaut.gltf';
@@ -188,7 +205,6 @@ async function init() {
       if(star.position.z>1000) star.position.z -= 2000; 
     }
   }
-
   // 滾動特效
   gsap.to({}, {
     scrollTrigger: {
@@ -210,10 +226,6 @@ async function init() {
           camera.lookAt(orbitControls.target); // 確保相機始终看向目標對象
           orbitControls.update();
 
-          // 更新 scene3 的旋转和位置
-          scene3.rotation.y = -progress * Math.PI * 2;
-          scene3.position.y = progress * 4; // 可根据需要调整位置变换的幅度
-
       }
     }
   });
@@ -232,8 +244,7 @@ async function init() {
     const intersects = raycaster.intersectObjects(planes);
     if (intersects.length > 0) {
       const index = planes.indexOf(intersects[0].object);
-      console.log(index);
-      if (index !== -1) {
+      if (index !== -1 && items[index].link !== '#') {
         window.open(items[index].link, '_blank');
       }
     }
