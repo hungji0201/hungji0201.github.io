@@ -1,0 +1,23 @@
+{
+  "name": "work",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "vite": "^4.0.4"
+  },
+  "dependencies": {
+    "dat.gui": "^0.7.9",
+    "gsap": "^3.12.5",
+    "three": "^0.148.0"
+  },
+  "main": "vite.config.js",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "description": ""
+}
