@@ -2,8 +2,11 @@
   margin: 0;
   box-sizing: content-box;
 }
+html{
+  scroll-behavior: smooth;
+}
 .box{
-  height: 10000vh;
+  height: 5000vh;
 }
 canvas{
   position: fixed;

@@ -8,49 +8,57 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { items } from './work.js';
 gsap.registerPlugin(ScrollTrigger);
 
+let progress_p = 0.475; // 设置初始值
+let plane0InitialPosition = new THREE.Vector3(-1.1759085194360944e-14, 0, 4);
+let stopMoving = false; // 添加一个标记变量来标记是否停止移动
+const positionThreshold = 0.2;  // 调整位置比较的阈值
+let hasReachedInitialPosition = false; // 新增辅助变量
+let scrollDirection = 0; // 用于跟踪滚动方向，-1 表示向上滚动，1 表示向下滚动
+
+
 async function init() {
-  // 初始化 Three.js 場景
+  window.scrollTo(0, 0);
+  // 初始化 Three.js 场景
   const canvas = document.querySelector('#canvas');
   const sizes = {
     width: window.innerWidth,
     height: window.innerHeight,
   };
-  //太空人場景
+  //太空人场景
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 1000);
   camera.position.set(0, 3, 0);
-  //流星場景
+  //流星场景
   const scene2 = new THREE.Scene();
   const camera2 = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 1000);
-  //作品場景
+  //作品场景
   const scene3 = new THREE.Scene();
   const camera3 = new THREE.PerspectiveCamera(75, sizes.width / sizes.height, 0.1, 1000);
-  camera3.position.set(0, 0.1, 5.8); // 0, 0.1, 5.8
+  camera3.position.set(0, -0.1, 5.8); // 0, 0.1, 5.8
   const raycaster = new THREE.Raycaster();
   const mouse = new THREE.Vector2();
   const planes = [];
-  
 
   const fontLoader = new FontLoader();
   fontLoader.load('./model/Noto_Sans_TC_SemiBold_Regular.json', (font) => {
     function createSpiralPath(radius, height, turns, points) {
       const pointsArray = [];
       for (let i = 0; i <= points; i++) {
-          const angle = (-i / points) * turns * Math.PI * 2;
-          const x = radius * Math.cos(angle);
-          const y = (-height * (i / points) + height / 2) - 1.5;  // Adjust y to center the spiral path
-          const z = radius * Math.sin(angle);
-          pointsArray.push(new THREE.Vector3(x, y, z));
+        const angle = (-i / points) * turns * Math.PI * 2;
+        const x = radius * Math.cos(angle);
+        const y = (-height * (i / points) + height / 2) - 1.5;  // Adjust y to center the spiral path
+        const z = radius * Math.sin(angle);
+        pointsArray.push(new THREE.Vector3(x, y, z));
       }
       return new THREE.CatmullRomCurve3(pointsArray);
     }
     const radius = 4;
     const height = 60;
     const turns = 10;
-    const points = 400;
+    const points = 1000; // 增加点的数量
     const spiralPath = createSpiralPath(radius, height, turns, points);
     const geometry = new THREE.BufferGeometry().setFromPoints(spiralPath.getPoints(points));
-    const material = new THREE.LineBasicMaterial({ color: 0xff0000, visible: false }); // 隐藏路径线条
+    const material = new THREE.LineBasicMaterial({ color: 0xff0000, visible: true }); // 隐藏路径线条
     const line = new THREE.Line(geometry, material);
     scene3.add(line);
     const createTextMesh = (text, font) => {
@@ -86,45 +94,119 @@ async function init() {
       plane.add(infoText);
       planes.push(plane);
       scene3.add(plane);
+
+      if (index === 0) {
+        plane.position.copy(plane0InitialPosition); // 手动设置 plane0 的初始位置
+      }
     });
 
-    let progress_p = 0.475;
-    let positionsStopped = Array(planes.length).fill(false);
     updatePlanePositions();
 
     function updatePlanePositions() {
+      if (stopMoving && scrollDirection === 1) return; // 如果标记为停止移动且滚动方向向下，则直接返回，不再更新位置
+    
+      const targetPlaneIndex = 26; // 第26個plane的索引
+      const totalPoints = 400; // 确保螺旋路径上有足够的点
+      const targetPlaneProgress = (progress_p + targetPlaneIndex * 0.02) % 1;
+    
+      let finalPoint, finalTangent;
+      try {
+        finalPoint = spiralPath.getPointAt(targetPlaneProgress);
+        finalTangent = spiralPath.getTangentAt(targetPlaneProgress);
+        if (!finalPoint || !finalTangent) throw new Error('Invalid final point or tangent');
+      } catch (error) {
+        console.error(`Error getting final point or tangent at progress ${targetPlaneProgress}`, error);
+        finalPoint = new THREE.Vector3(0, 0, 0); // 使用默认值
+        finalTangent = new THREE.Vector3(0, 0, 1); // 使用默认值
+      }
+    
+      const direction = finalTangent.clone().normalize();
+      const perpendicular = new THREE.Vector3(-direction.z, 0, direction.x);
+    
       planes.forEach((plane, index) => {
-        if (!positionsStopped[index] || progress_p < 0.475) {
-          let planeProgress = (progress_p + index * 0.02) % 1;
-          planeProgress = Math.max(0, Math.min(planeProgress, 1));  // 确保值在0到1之间
-          const point = spiralPath.getPointAt(planeProgress);
-          const tangent = spiralPath.getTangentAt(planeProgress);
-          plane.position.copy(point);
-          const direction = tangent.clone().normalize();
-          const perpendicular = new THREE.Vector3(-direction.z, 0, direction.x);
-          plane.lookAt(point.clone().add(perpendicular));
-
-          if (planeProgress === 0) {
-            positionsStopped[index] = true;
-          } else {
-            positionsStopped[index] = false;
+        let planeProgress;
+        if (index <= targetPlaneIndex) {
+          planeProgress = (progress_p + index * 0.02) % 1;
+        } else {
+          planeProgress = (progress_p + targetPlaneIndex * 0.02) % 1 + (index - targetPlaneIndex) * 0.02;
+        }
+    
+        // 避免 planeProgress 恰好为 1
+        if (planeProgress >= 1) {
+          planeProgress = 0.999999;
+        }
+    
+        // 确保 planeProgress 在 0 到 1 之间
+        planeProgress = Math.max(0, Math.min(planeProgress, 0.999999));
+    
+        // 获取路径上的点和切线
+        let point, tangent;
+        try {
+          if (planeProgress < 0 || planeProgress >= 1) {
+            throw new Error(`Invalid planeProgress value: ${planeProgress}`);
           }
+          point = spiralPath.getPointAt(planeProgress);
+          tangent = spiralPath.getTangentAt(planeProgress);
+          if (!point || !tangent) throw new Error('Invalid point or tangent');
+        } catch (error) {
+          console.error(`Error getting point or tangent for plane ${index} at progress ${planeProgress}`, error);
+          point = new THREE.Vector3(0, 0, 0); // 使用默认值
+          tangent = new THREE.Vector3(0, 0, 1); // 使用默认值
+        }
+    
+        if (point && tangent) {
+          // 更新 plane 的位置和朝向
+          plane.position.copy(point);
+          const dir = tangent.clone().normalize();
+          const perp = new THREE.Vector3(-dir.z, 0, dir.x);
+          plane.lookAt(point.clone().add(perp));
+    
+          // 检查最后一个 plane 是否到达 plane0 的初始位置
+          if (index === planes.length - 1) {
+            console.log(`Last plane position: ${plane.position.x}, ${plane.position.y}, ${plane.position.z}`);
+            if (plane.position.distanceTo(plane0InitialPosition) < positionThreshold) {
+              if (scrollDirection === 1) { // 只有在向下滚动时才设置停止标记
+                stopMoving = true; // 设置停止标记
+                hasReachedInitialPosition = true; // 设置辅助变量
+                console.log('Last plane has reached plane0 initial position. Stopping movement.');
+              }
+            } else {
+              hasReachedInitialPosition = false; // 重置辅助变量
+              if (scrollDirection === -1) {
+                stopMoving = false; // 允许在向上滚动时继续移动
+              }
+            }
+          }
+        } else {
+          console.error(`Invalid point or tangent at plane ${index}, progress ${planeProgress}`);
         }
       });
     }
-
+    
     gsap.to({}, {
       scrollTrigger: {
-          trigger: document.body,
-          start: "top top",
-          end: "bottom+=9000px top",
-          scrub: true,
-          onUpdate: (self) => {
-              progress_p = 0.475 - self.progress;
-              updatePlanePositions();
+        trigger: document.body,
+        start: "top top",
+        end: "bottom bottom",
+        scrub: true,
+        ease: "power3.out", // 添加缓动效果
+        onUpdate: (self) => {
+          const previousProgress = progress_p;
+          progress_p = 0.475 - self.progress; // 更新 progress_p 的值
+          scrollDirection = progress_p > previousProgress ? -1 : 1; // 更新滚动方向
+          try {
+            updatePlanePositions(); // 强制进行位置更新
+            if (!hasReachedInitialPosition) {
+              // 如果没有达到目标位置，强制进行位置比较
+              requestAnimationFrame(updatePlanePositions);
+            }
+          } catch (error) {
+            console.error('Error updating plane positions:', error);
           }
+        }
       }
     });
+    
   });
   
   // orbitControls設定
@@ -294,4 +376,11 @@ async function init() {
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
   });
 };
-init();
+
+document.addEventListener("DOMContentLoaded", () => {
+  setTimeout(() => {
+    window.scrollTo(0, 0);
+    progress_p = 0.475; // 确保在页面加载完成后设置 progress_p 的初始值
+    init(); // 调用初始化函数
+  }, 100); // 使用100毫秒的延遲
+});
